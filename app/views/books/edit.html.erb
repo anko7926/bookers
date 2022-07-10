@@ -6,10 +6,14 @@
 
 <h1>Editing Book</h1>
 
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error
+
 <% @book.errors.full_messages.each do |message| %>
   <div class="form-error">
     <%= message %>
   </div>
+<% end %>
 <% end %>
 
 <%= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
